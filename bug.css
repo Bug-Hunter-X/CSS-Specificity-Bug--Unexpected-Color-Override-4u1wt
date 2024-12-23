@@ -1,0 +1,22 @@
+The following CSS code snippet demonstrates an uncommon error related to the specificity of CSS selectors:
+
+```css
+div {
+  color: blue;
+}
+
+.myClass div {
+  color: red;
+}
+
+#myId div {
+  color: green;
+}
+
+#myId .myClass div {
+  color: purple;
+}
+
+```
+
+The issue is that the order of the selectors matters when they have equal specificity.  In this example, the selector `#myId .myClass div` is considered less specific than `#myId div`. Therefore, if an element matches both selectors, the `color: green` from `#myId div` will override the `color: purple` from `#myId .myClass div`. This is because the browser processes the CSS rules from top to bottom, and the first matching rule wins if both have the same specificity.
