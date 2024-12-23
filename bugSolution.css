@@ -1,0 +1,22 @@
+To solve the issue, rearrange the CSS rules to ensure that the more specific selector (`#myId .myClass div`) is listed before the less specific selector (`#myId div`). Here's the corrected code:
+
+```css
+div {
+  color: blue;
+}
+
+#myId div {
+  color: green;
+}
+
+.myClass div {
+  color: red;
+}
+
+#myId .myClass div {
+  color: purple;
+}
+
+```
+
+By placing `#myId .myClass div` before `#myId div`, we guarantee that `color: purple` will be applied when an element matches both selectors, since it will be evaluated first.
